@@ -200,3 +200,12 @@ Linux 命令行
   ```
 
   > https://www.cnblogs.com/zcx-python/p/9001630.html
+  
+- shred（文件粉碎）
+
+  ```bash
+  $ shred xx.xx // 覆盖
+  $ shred -u xx.xx // remove
+  ```
+
+  
