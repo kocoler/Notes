@@ -208,4 +208,17 @@ Linux 命令行
   $ shred -u xx.xx // remove
   ```
 
+- hash
+
+  命令运行时系统优先查询的哈希表
+
+  ```bash
+  $ hash
+  ...
+  go=/usr/local/go/bin/go
+  gopkgs=/usr/local/go/bin/gopkgs
+  ...
+  ```
+
   
+
