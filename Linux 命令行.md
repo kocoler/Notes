@@ -220,5 +220,11 @@ Linux 命令行
   ...
   ```
 
-  
+- unexpand（转换空格和TAB）
+
+  ```bash
+  $ unexpand -a -t 4 xxx.txt
+  ```
+
+- 
 
