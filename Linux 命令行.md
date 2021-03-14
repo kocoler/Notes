@@ -226,5 +226,29 @@ Linux 命令行
   $ unexpand -a -t 4 xxx.txt
   ```
 
+- trancerouter
+
+  hop by hop 的发送 ping
+
+  icmp 协议
+
+  ```bash
+  $ trancerouter www.example.com
+  ```
+
+- stat
+
+  ```bash
+  root@xxx:~# stat Documents/Dockerfile
+    File: Documents/Dockerfile
+    Size: 254       	Blocks: 8          IO Block: 4096   regular file
+  Device: fc01h/64513d	Inode: 1061040     Links: 1
+  Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+  Access: 2021-01-25 21:26:07.054177462 +0800
+  Modify: 2020-12-05 20:18:21.897935577 +0800
+  Change: 2020-12-05 20:18:21.897935577 +0800
+   Birth: -
+  ```
+
 - 
 
