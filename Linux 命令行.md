@@ -238,6 +238,8 @@ Linux 命令行
 
 - stat
 
+  查看inode信息
+
   ```bash
   root@xxx:~# stat Documents/Dockerfile
     File: Documents/Dockerfile
