@@ -45,7 +45,7 @@ Redis
 
    `zadd` `zrange` `zrevrange` `zcard` `zscore` `zrank`
 
-   `zrangebysco` `zrem`
+   `zrangebyscoe` `zrem`
 
    **跳跃列表**
 
@@ -61,4 +61,75 @@ Redis
 2. drop if no elements 
 3. expire 时间作用整个对象
 4. expire 会覆盖 (**set 会取消**)
+
+
+
+### 分布式锁
+
+- setnx 设置锁
+
+  v 2.8 +
+
+  ```bash
+  > set lock:xx true ex 5 nx
+  ```
+
+- del 解锁
+
+  ```bash
+  > del lock:xx
+  ```
+
+  
+
+### 延时队列
+
+- zrangebyscore -> 把过期时间当作score 轮询score小于当前时间的 value -> score(0, time.Now().Unix())
+- zrem判断是否抢到任务
+
+
+
+### 位图
+
+本质是 byte 数组
+
+1位1bit
+
+位数组是**自动扩展**的
+
+从高到低位*与数组相反*
+
+- getbit/setbit
+
+“零存整取” “整存零取”
+
+- **bitcount** 计数
+
+- bitpos 查找第一个0/1 **可指定范围，但是是字节索引，所以结果只能是8的倍数**
+
+  -> 
+
+- bitfield -> 片段读写
+
+  get、set、incrby
+
+  overflow：
+
+  - wrap 折返
+  - fail 报错不执行
+  - sat 饱和截断
+
+  只作用一次
+
+
+
+### HyperLogLog
+
+提供不精确的去重技术方案，标准误差0.81%
+
+`pfadd` `pfcount` `pfmerge`
+
+稀疏矩阵存储 -> 稠密矩阵
+
+
 
