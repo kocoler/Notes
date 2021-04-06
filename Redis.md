@@ -133,3 +133,133 @@ Redis
 
 
 
+### 非堵塞I/O
+
+能读多少读多少，能写多少写多少
+
+(堵塞: 生产等待消费)
+
+
+
+### 定时任务
+
+维护最小堆，立即处理堆顶，并记录下一个到时时间 timeout
+
+
+
+### RESP(Redis Serialization Protocal)
+
+Redis 序列化协议
+
+<img src="Redis.assets/image-20210322103617995.png" alt="image-20210322103617995" style="zoom:50%;" />
+
+<img src="Redis.assets/image-20210322103847506.png" alt="image-20210322103847506" style="zoom:50%;" />
+
+
+
+客户端向服务器发送的指令只有一种，多行字符串**数组** （数组，每个元素都是RESP**多行**字符串格式）
+
+
+
+### 持久化
+
+- 快照
+
+  全量备份内存数据二进制序列化形式
+
+- AOF日志
+
+  增量备份，内存数据修改指令文本
+
+<img src="Redis.assets/image-20210322110917230.png" alt="image-20210322110917230" style="zoom:50%;" />
+
+- COW (copy on write)
+
+  
+
+
+
+### **通用数据结构（对象头数据结构）**
+
+占 16 bytes
+
+```cpp
+struct RedisObject {
+  int4 type; // 4bits 不同对象
+  int4 encoding; // 4bits 不同编码方式
+  int24 lru; // 24bits
+  int32 refcount; // 4bytes 引用计数 0 销毁 回收内存
+  void *prt; // 8bytes
+}
+```
+
+
+
+### 字符串的实现
+
+Simple Dynamic String
+
+数据结构：带长度信息的字节数组
+
+不得超过 512 MB
+
+```cpp
+struct SDS<T> {
+  T capacity; // 容量
+  T len; // 长度
+  byte flags; // 特殊标识位
+  byte[] content; // 内容
+}
+```
+
+T -> byte/short/int
+
+初始化时 len == capacity -> 都是节约空间
+
+两种存储方式
+
+以 44 字节为界限
+
+内存分配（jemalloc/tcmalloc）单位：2、4、8、16、32、64
+
+- embstr
+
+  body 与对象头保存在一起（一起malloc）
+
+- raw
+
+  不保存在一起（malloc 两次）
+
+```redis
+> debug object youStrObject
+```
+
+扩容：每次*2，1M后每次1M
+
+
+
+### 字典（dict）
+
+redis 内部键值对和过期时间、zset 都要 dict
+
+```cpp
+struct RedisDb {
+  dict* dict; // 所有键值对 ket:value
+  dict* expires; // 所有带过期时间的键值对 key:long(timestamp)
+  ...
+}
+```
+
+```cpp
+struct zset {
+  dict* dict; // ket:value
+  zskiplist* zsl;
+}
+```
+
+dict 数据结构
+
+渐进式 rehash
+
+![image-20210320132949475](Redis.assets/image-20210320132949475.png)
+

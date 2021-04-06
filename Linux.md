@@ -48,7 +48,7 @@ Linux
   Systemd 可以管理所有系统资源。不同的资源统称为 Unit（单位）。
 
   
-  
+
 - 进程
 
   按照进程的功能和运行的程序分类，进程可划分为两大类：
@@ -75,4 +75,24 @@ Linux
 
   
 
-- 
+- glibc
+
+  glibc是GNU发布的libc库，即c运行库。glibc是linux系统中最底层的api，几乎其它任何运行库都会依赖于glibc。
+
+  glibc 和 libc 都是 Linux 下的 C 函数库。
+
+  libc 是 Linux 下的 ANSI C 函数库；glibc 是 Linux 下的 GUN C 函数库。
+
+
+
+- Shebang (Unix)
+
+  ```shell
+  #!interpreter [optional-arg]
+  ```
+
+  ```shell
+  #!/usr/bin/env sh
+  ```
+
+
