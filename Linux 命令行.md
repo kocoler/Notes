@@ -253,5 +253,37 @@ Linux 命令行
    
   ```
 
-- 
+- tee
+
+  ```bash
+  $ echo "something" | tee -a file
+  ```
+
+- w 登陆信息
+
+  ```shell
+  $ w
+   0:14  up 30 days, 15:04, 6 users, load averages: 1.73 1.84 2.19
+  USER     TTY      FROM              LOGIN@  IDLE WHAT
+  mac      console  -                07 321  30days -
+  mac      s005     -                二18       5 -zsh
+  mac      s004     -                 0:07       - w
+  mac      s002     -                一22    5:51 -zsh
+  mac      s003     -                二18    3:08 -zsh
+  mac      s001     -                21 321  26:47 /usr/bin/less
+  ```
+
+- netstat 网络信息
+
+  ```shell
+  $ netstat -atu
+  ```
+
+- ss
+
+  ```shell
+  $ ss -tln
+  ```
+
+  
 
