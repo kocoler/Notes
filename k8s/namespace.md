@@ -67,7 +67,7 @@ k8s 设置字段 `ObjectMeta.DeletionTimestamp` 来确定 namespace 是否被删
 
 > /{k8s_storage_prefix}/{resourceType}/{resource.Namespace}/{resource.Name}
 
-这样设计的目的是便于跨命名空间监听( /registry/{resourceType} )
+这样设计的目的是便于跨命名空间监听(watch)(/registry/{resourceType})
 
 #### In kubelet
 

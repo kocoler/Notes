@@ -89,6 +89,30 @@ Redis
 
 
 
+### 漏斗限流
+
+1. 维护滑动窗口
+
+2. cl.throttle
+
+   ```bash
+   > cl.throttle key capacity operations period(seconds) quota
+   ```
+
+   返回值
+
+   ```bash
+   > 0/1 是否允许
+   > 漏斗容量
+   > 漏洞剩余空间
+   > -1 / 如果拒绝了，多少时间后可重试
+   > 多久时间后漏斗完全空出来
+   ```
+
+   
+
+
+
 ### 位图
 
 本质是 byte 数组
@@ -141,9 +165,41 @@ Redis
 
 
 
+### 近似 LRU
+
+时间戳字段
+
+每次随机 5 个值，删除最旧的，直至低于maxmemory-policy
+
+
+
 ### 定时任务
 
 维护最小堆，立即处理堆顶，并记录下一个到时时间 timeout
+
+
+
+### 懒删除 LAZYFREE
+
+> redis >= 4.0
+
+```bash
+> ulink key
+> flushdb async (异步)
+> flushall async (异步)
+```
+
+解决删除(del 命令)大量 key 集合导致的性能堵塞
+
+后台线程异步回收内存
+
+若集合小(内存占用少) 直接执行 del, 等价 del
+
+AOF 也采用异步
+
+其他异步：
+
+<img src="Redis.assets/image-20210418165447962.png" alt="image-20210418165447962" style="zoom:50%;" />
 
 
 

@@ -95,23 +95,52 @@ Linux
   #!/usr/bin/env sh
   ```
   
-- ps
+  
+  
+- read 与 select
 
-  > PROCESS STATE CODES
-  >          Here are the different values that the s, stat and state output specifiers (header "STAT" or "S") will display to describe the state of a process:
-  >          D    uninterruptible sleep (usually IO)
-  >          R    running or runnable (on run queue)
-  >          S    interruptible sleep (waiting for an event to complete)
-  >          T    stopped, either by a job control signal or because it is being traced.
-  >          W    paging (not valid since the 2.6.xx kernel)
-  >          X    dead (should never be seen)
-  >          Z    defunct ("zombie") process, terminated but not reaped by its parent.
-  >
-  >          For BSD formats and when the stat keyword is used, additional characters may be displayed:
-  >          <    high-priority (not nice to other users)
-  >          N    low-priority (nice to other users)
-  >          L    has pages locked into memory (for real-time and custom IO)
-  >          s    is a session leader
-  >          l    is multi-threaded (using CLONE_THREAD, like NPTL pthreads do)
-  >          +    is in the foreground process group.
+  read 不加参数，相当于 recv
+
+  当read/recv 返回 0 时，可以确认对方已经关闭 socket 此时socket fd 的读缓冲区中，会一直存在一个概念数据流 EOF，并不可以被读取出来，可以被处理，但是每处理一个 EOF(读出一个 0) 系统会再次在 fd 中产生一个 EOF 并且 EOF 对 select 来说是 ready 状态
+
+  select 可以轮询 读 fd 集合 写 fd 集合 错误 fd 集合，并且可以根据 timeout 作出不同表现，每次 timeout 都一定会唤醒
+
+  select 会每次改变 读集合，改变为下一个状态，这个被认为是历史遗留设计问题
+
+  select 有可能会改变 timeout 作为剩余过气时间，根据内核不同表现不同
+
+  socket fd 有 读缓冲区 和 写缓冲区，因而可以边写边读，应该是并发安全的~~不记得出处了~~
+
+  对应到物理层，双绞线(~~反正就有两条线读/写，是不是双绞线问题不大~~)，读写完全隔离(参见./网络/others.全双工/半双工/单工)
+
+  select 建议搭配 非堵塞 IO，也有安全原因，但尚且不清楚是什么安全原因
+
+
+
+- UNIX network IO
+
+  对于一个network io 基本会涉及两个阶段
+
+  - 准备数据
+  - 数据从 kernel space 到 user space buffer
+
+  对应五种 IO model:
+
+  - blocking IO
+  - nonblocking IO
+  - multiplexing(selector)
+  - signal-driven IO
+  - asynchronous IO
+
+  区别对比：
+
+  ![img](Linux.assets/1*RcsvMcPF2wC_3tV5ckU8vg.jpeg)
+
+  异步 IO 是两阶段都完成才唤醒，这样的区别就是第二阶段也是不堵塞的，其他的话只是第一阶段不堵塞，但是第二阶段还是要等待，除非多线程(我觉得)
+
+  多路轮询需要两次 system call
+
+  非堵塞就是 如果不能读就返回错误 EWOULDBOLOCK
+
+  > 區別這兩者的關鍵就是**到底是誰在進行真正的I/O**, 如果是主執行緒, 那就是synchronous, 若是衍生出來的子執行緒, 待子執行緒完成I/O operation後回報給主執行緒, 這就是asynchronous.
 
