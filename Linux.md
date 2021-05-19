@@ -144,3 +144,8 @@ Linux
 
   > 區別這兩者的關鍵就是**到底是誰在進行真正的I/O**, 如果是主執行緒, 那就是synchronous, 若是衍生出來的子執行緒, 待子執行緒完成I/O operation後回報給主執行緒, 這就是asynchronous.
 
+### File-system VS mac os VS windows
+
+**Windows**
+
+FAT: FAT12(12 bit represent a block) -> FAT16 -> FAT32(4294967296)

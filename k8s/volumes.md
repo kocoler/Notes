@@ -19,6 +19,10 @@ Volumes
 
 默认 UTF-8，其他格式需要 `binaryData`
 
+无需修改每个pod的
+
+明文存储
+
 ### downwardAPI
 
 查看 downwardAPI 下面的 items 数组。 每个数组元素都是一个 DownwardAPIVolumeFile 对象。

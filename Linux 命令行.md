@@ -313,5 +313,40 @@ Linux 命令行
 
   其他方法
 
+- namp
+
+  端口开放扫描
+
+  -p 指定端口
+
+  ```bash
+  $ nmap 127.0.0.1
+  Starting Nmap 7.91 ( https://nmap.org ) at 2021-05-19 13:29 CST
+  Nmap scan report for localhost (127.0.0.1)
+  Host is up (0.00048s latency).
+  Not shown: 995 closed ports
+  PORT     STATE SERVICE
+  1080/tcp open  socks
+  1087/tcp open  cplscrambler-in
+  3000/tcp open  ppp
+  3306/tcp open  mysql
+  9000/tcp open  cslistener
   
+  Nmap done: 1 IP address (1 host up) scanned in 7.01 seconds
+  ```
+
+- mtr
+
+  enhance trancerouter
+
+- jq
+
+  json处理器
+
+  ```bash
+  $ jq -c . input.json // compose json to one line
+  $ jq . // beautify json
+  ```
+
+- 
 
