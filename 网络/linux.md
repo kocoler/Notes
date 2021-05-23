@@ -18,3 +18,21 @@
 
 > http://tangxinfa.github.io/article/51857f51-ip-6bb5670954ea4e9b.html
 
+
+
+在第二层上的数据，我们叫Frame，在第三层上的数据叫Packet，第四层的数据叫Segment。
+
+
+
+### Linux 中的 TCP/IP 协议栈参数
+
+> https://colobu.com/2014/09/18/linux-tcpip-tuning/
+
+**/proc/sys/net/ipv4/** : TCP 的 IPV4参数，但是重启会失效
+
+**/etc/sysctl.conf** : Linux 内核参数 sysctl -p 生效
+
+```conf
+net.ipv4.tcp_syc_retries=1
+```
+
