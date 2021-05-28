@@ -144,6 +144,25 @@ Linux
 
   > 區別這兩者的關鍵就是**到底是誰在進行真正的I/O**, 如果是主執行緒, 那就是synchronous, 若是衍生出來的子執行緒, 待子執行緒完成I/O operation後回報給主執行緒, 這就是asynchronous.
 
+### NAPI(New API)
+是 Linux 中使用 interrupt mitigation 的接口
+默认中断，数据量大了就变成 interrupt coalescing
+ **The poll function is implemented by the device driver**
+这个 poll 并不是我们平时的 poll
+是硬件做的比的玩意
+主要是 通过中断触发回调
+附:
+ 在 WIN 中，起到同样功能的叫 Interrupt Moderation
+ 网卡 攒到一定包 或者一定期限 进行 interrupt
+ 要求并且默认打开
+ > https://docs.microsoft.com/en-us/windows-hardware/drivers/network/interrupt-moderation
+
+
+### epoll kqueue poll 等等
+> https://www.zhihu.com/question/20122137 这个很牛啊
+> 通常来说select和poll属于I/O multiplexing，而epoll可以算作signal driven I/O
+> epoll用红黑树存储，用list存储就绪事件（与select和poll不同，select是bitmap，poll是数组存储）
+
 ### File-system VS mac os VS windows
 
 **Windows**

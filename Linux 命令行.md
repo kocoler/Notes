@@ -348,5 +348,21 @@ Linux 命令行
   $ jq . // beautify json
   ```
 
-- 
+- iperf
+  internet perform
+  ```bash
+  $ iperf -c 127.0.0.1 -e -i 1 # c
+  $ iperf -s ... # s
+  ```
 
+与 linux 内核/驱动有关的
+- lspci
+  可以查看当前系统中所有PCI的设备的信息
+
+- lsmod
+  列出当前系统中所有已经加载了的模块/驱动
+
+- modinfo
+  命令可以单看指定的模块/驱动的信息
+
+- 
