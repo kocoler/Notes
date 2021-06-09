@@ -163,6 +163,8 @@ Linux
 > 通常来说select和poll属于I/O multiplexing，而epoll可以算作signal driven I/O
 > epoll用红黑树存储，用list存储就绪事件（与select和poll不同，select是bitmap，poll是数组存储）
 
+epoll 主要是给网络IO用的，读正常的文件会直接读到EOF，也就是直接准备好，没必要。有些还会有问题。
+
 ### File-system VS mac os VS windows
 
 **Windows**
