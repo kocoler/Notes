@@ -62,4 +62,8 @@ spec:  # 说明
 ```
 
 
+启动顺序：
+![图 1](https://i.loli.net/2021/06/30/ilWNPnd3GbvB98t.png)  
+
+
 
