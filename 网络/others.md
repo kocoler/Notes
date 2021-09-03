@@ -11,15 +11,6 @@
 > 全双工的网络必须要使用交换机组网。
 
 
-
-### 1xx 状态码(Continue)
-
-1xx状态码是 **HTTP/1.1** 版本新定义的，用来表示请求被正常接受，会进行进一步处理。
-
-> HTTP/0.9 版本的响应报文只包含实体部分，没有状态码或原因短语的存在
-
-
-
 ### 比快速重传机制更好的 SACK 方法
 
 RFC 2018
@@ -41,3 +32,12 @@ RFC 2018
 HTTP严格传输安全（HTTP Strict Transport Securit）
 是一套由互联网工程任务组发布的互联网安全策略机制。网站可以选择使用HSTS策略，来让浏览器强制使用HTTPS与网站进行通信，以减少会话劫持风险。
 HSTS的作用是强制客户端（如浏览器）使用HTTPS与服务器创建连接。服务器开启HSTS的方法是，当客户端通过HTTPS发出请求时，在服务器返回的超文本传输协议（HTTP）响应头中包含Strict-Transport-Security字段。非加密传输时设置的HSTS字段无效
+
+
+### Percent-encoding 百分比编码
+它有时被称为URL编码。编码由英文字母替换组成：“%” 后跟替换字符的ASCII的十六进制表示。
+相关传输方式: `application/x-www-form-urlencoded`
+
+
+### FQDN (Fully Qualified Domain Name)
+全限定域名：同时带有主机名和域名的名称
