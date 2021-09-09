@@ -41,3 +41,6 @@ HSTS的作用是强制客户端（如浏览器）使用HTTPS与服务器创建�
 
 ### FQDN (Fully Qualified Domain Name)
 全限定域名：同时带有主机名和域名的名称
+
+#### ACME(Automated Certificate Management Environment)
+自动化证书管理环境

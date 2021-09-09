@@ -186,3 +186,16 @@ FAT: FAT12(12 bit represent a block) -> FAT16 -> FAT32(4294967296)
 
 BPF支持过滤数据包——用户态的进程可以提供一个过滤程序来声明它想收到哪些数据包。通过这种过滤可以避免从操作系统内核向用户态复制其他对用户态程序无用的数据包，从而极大地提高性能。
 
+### 运行级别与自启动服务管理
+
+/etc/init.d/ 下是可执行文件或脚本
+/etc/rc.d/ 下是连接
+
+> 0，1... 6 代表启动级别： 0代表停止，1代表单用户模式，2-5代表多用户模式，6代表重启
+> xyyzzzzz 代表启动级别： x代表关闭或者是开启(K/S)，yy代表自启动级别，zzzzzzz是名字
+
+相关命令行：chkconfig、runlevel
+
+### SysV
+
+  > UNIX System V是Unix操作系统众多版本中的一支。它最初由AT&T开发，在1983年第一次发布，因此也被称为AT&T System V。一共发行了4个System V的主要版本：版本1、2、3和4。System V Release 4，或者称为SVR4，是最成功的版本，成为一些UNIX共同特性的源头，例如“SysV 初始化脚本”（/etc/init.d），用来控制系统启动和关闭，System V Interface Definition（SVID）是一个System V如何工作的标准定义。

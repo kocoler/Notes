@@ -36,3 +36,6 @@
 net.ipv4.tcp_syc_retries=1
 ```
 
+### 半连接队列
+
+收到SYN包后，TCP会把SYN包放入半连接队列，等待ACK包。
