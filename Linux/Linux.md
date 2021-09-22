@@ -283,4 +283,19 @@ __attribute((destructor)) void after_main()
 > https://gcc.gnu.org/onlinedocs/gccint/Leaf-Functions.html
 
 不用(依赖)自己的寄存器规则
-GCC 可以重拍寄存器
+GCC 可以重排寄存器
+
+#### Pthread
+
+POSIX Threads
+是 POSIX 线程标准，定义了创建和操纵线程的一套 API
+
+大概分为四类
+- 线程管理
+  创建、等待、状态 ...
+- 互斥锁
+  ...
+- 条件变量
+  ...
+- 使用了互斥锁的线程间的同步管理
+  ...
