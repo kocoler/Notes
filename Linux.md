@@ -223,3 +223,64 @@ pointer |	32 |	32 |	64 |	64 |	64
 > LLP64指long long和pointer是64-bit的，
 > ILP32指int，long和pointer是32位的，
 > LP32指long和pointer是32位的。
+
+### RTC
+
+实时时钟（Real-time clock，RTC）是指可以像时钟一样输出实际时间的电子设备，一般会是集成电路。
+
+### Reserved code ____xx__
+
+C 保留字段，优点就是不会被覆盖
+
+
+### 惊群问题
+
+accept() 等待的时候，会是一个链表，然后唤醒的时候全部唤醒，但是我不明白为什么只唤醒一个节点，嗯，所以惊群
+
+2.6之后引入 exclusive 标记，非exclusive在所有exclusive之前，然后唤醒。
+
+
+### 处理器架构，指令集，汇编语言
+
+处理器架构 => 微架构(Micro-architecture)
+处理器指令集 => 架构(Instruction Set Architecture)
+汇编语言 => 指令集(Assembly Language)
+
+> X86 (ISA) （指令集架构）（设计规范）
+> ——————
+> AMD | Intel （微架构）（设计方案的实现）
+> ——————
+> 具体电路，量子，生物（具体实现）
+
+
+### C attribute
+
+自定义入口点
+
+```c
+__attribute((constructor)) void before_main()  
+{  
+    printf("%s/n",__FUNCTION__);  
+}   
+
+__attribute((destructor)) void after_main()  
+{  
+    printf("%s/n",__FUNCTION__);  
+}  
+```
+
+
+### 内核空转问题
+
+> https://www.zhihu.com/question/23561375
+
+每个 CPU 一个0号进程，一直在跑，调用电源管理，降频，优先度很低。
+
+总体还是通过中断的。
+
+### Leaf Functions
+
+> https://gcc.gnu.org/onlinedocs/gccint/Leaf-Functions.html
+
+不用(依赖)自己的寄存器规则
+GCC 可以重拍寄存器
