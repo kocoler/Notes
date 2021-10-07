@@ -44,3 +44,17 @@ HSTS的作用是强制客户端（如浏览器）使用HTTPS与服务器创建�
 
 #### ACME(Automated Certificate Management Environment)
 自动化证书管理环境
+
+### SOCKS(SOCKet Secure)
+
+SOCKS是**会话层**的协议，无视协议，只转发
+
+主要对比 HTTP 代理，HTTP 代理只代理 TCP，Socks 5支持UDP。作用于会话层(较 HTTP 低层)，速度快。更安全(更多安全的手段)。
+
+**和v2ray的区别**
+
+v2ray 兼容 Socks 5
+
+**VMess**
+
+V2Ray 原创的加密通讯协议，基于 TCP，UDP over TCP，由TCP包装后转发
