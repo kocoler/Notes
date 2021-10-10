@@ -1,8 +1,6 @@
 MAC
 ===
 
-
-
 - **应用文件位置**：
 
   - **Configuration**
@@ -28,4 +26,3 @@ MAC
     ```
     ~/Library/Logs/
     ```
-
