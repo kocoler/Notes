@@ -419,3 +419,12 @@ Linux 命令行
 - paping/psping
 
   PsPing 是微软 PSTools 工具套件中的其中一个命令。除了ICMP ping 测试，它主要用来测试 TCP 端口的连通性，还可以测试 TCP/UDP 网络时延和带宽。不过，PsPing 只能在 Windows 中运行。PaPing 是一个跨平台的开源工具。它的功能相对 PsPing 而言更简单，只支持 TCP 端口的相关测试，不支持 UDP 端口的测试。
+
+- sudo
+  sudo 执行的话，他的依赖信息是在 `/etc/sudoers` 里，可以通过 `sudo -V` 查看详情信息
+  所以要想要一样的 ENV 的话，可以
+  ```bash
+  $ sudo env "PATH=$PATH" godi_console
+  ```
+  或者修改 sudoers 里 `Defaults secure_path = ...`
+  虽然通过看文档，我认为 sudo -E 也是可行的，未测试

@@ -13,3 +13,13 @@
 
 > 在可计算性理论，如果一系列操作数据的规则（如指令集、编程语言、细胞自动机）可以用来模拟任何图灵机，那么它是图灵完备的。
 > 这意味着这个系统也可以识别其他数据处理规则集，图灵完备性被用作表达这种数据处理规则集的一种属性。
+
+### Monolithic kernel & Micro kernel
+
+Unix, Linux: Monolithic kernel
+MaxOS, Win: Micro kernel
+
+前面就是整个 kernel 一起(single large process running entirely in a single address space)
+后面的是分成若干块(the kernel is broken down into separate processes, known as server)
+
+> https://stackoverflow.com/questions/4537850/what-is-difference-between-monolithic-and-micro-kernel
