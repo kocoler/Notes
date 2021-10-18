@@ -1,4 +1,5 @@
-
+CSAPP c7
+===
 
 c 预处理器: cpp
 
@@ -35,4 +36,6 @@ x86-64 Linux: ELF(可执行可链接格式)
 
 ![图 6](https://i.loli.net/2021/10/07/NLzrxoe1GZEMFmi.png)  
 
+
+static 在 C 中，内部的变量是不在栈上管理的，而是在 .data 和 .bss 段为每个定义分配空间，在符号表中有唯一的名字
 
