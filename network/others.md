@@ -1,4 +1,4 @@
-### 全双工/半双工/单工
+#### 全双工/半双工/单工
 
 **全双工:** 两个方向同时传输，相当于两个单工的结合
 
@@ -11,7 +11,7 @@
 > 全双工的网络必须要使用交换机组网。
 
 
-### 比快速重传机制更好的 SACK 方法
+#### 比快速重传机制更好的 SACK 方法
 
 RFC 2018
 
@@ -25,27 +25,27 @@ RFC 2018
 
 但是如果不好好使用会引起发送端资源浪费
 
-### 
+#### 
 
 
-### HSTS
+#### HSTS
 HTTP严格传输安全（HTTP Strict Transport Securit）
 是一套由互联网工程任务组发布的互联网安全策略机制。网站可以选择使用HSTS策略，来让浏览器强制使用HTTPS与网站进行通信，以减少会话劫持风险。
 HSTS的作用是强制客户端（如浏览器）使用HTTPS与服务器创建连接。服务器开启HSTS的方法是，当客户端通过HTTPS发出请求时，在服务器返回的超文本传输协议（HTTP）响应头中包含Strict-Transport-Security字段。非加密传输时设置的HSTS字段无效
 
 
-### Percent-encoding 百分比编码
+#### Percent-encoding 百分比编码
 它有时被称为URL编码。编码由英文字母替换组成：“%” 后跟替换字符的ASCII的十六进制表示。
 相关传输方式: `application/x-www-form-urlencoded`
 
 
-### FQDN (Fully Qualified Domain Name)
+#### FQDN (Fully Qualified Domain Name)
 全限定域名：同时带有主机名和域名的名称
 
-#### ACME(Automated Certificate Management Environment)
+##### ACME(Automated Certificate Management Environment)
 自动化证书管理环境
 
-### SOCKS(SOCKet Secure)
+#### SOCKS(SOCKet Secure)
 
 SOCKS是**会话层**的协议，无视协议，只转发
 
@@ -59,6 +59,15 @@ v2ray 兼容 Socks 5
 
 V2Ray 原创的加密通讯协议，基于 TCP，UDP over TCP，由TCP包装后转发
 
-### 压测
+#### 压测
 
 nethogs/ab/nload/iptraf/netperf/iperf/iftop/netsniff-ng
+
+#### TCP UDP MTU
+
+UDP 最大 64 K，但是一般限制在 548 之间
+MTU 1500字节，最小 64 字节
+
+TCP 没有包长度这个区别，完全交给 IP 层分包
+
+> https://blog.csdn.net/caoshangpa/article/details/51530685
