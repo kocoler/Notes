@@ -1,3 +1,6 @@
+![图 3](https://s2.loli.net/2022/03/29/tSUyKA8iLFI1MPg.png)  
+
+
 ### 细胞自动机(Cellular automaton)
 
 > 它是由无限个有规律、坚硬的方格组成，每格均处于一种有限状态。

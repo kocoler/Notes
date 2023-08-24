@@ -2,6 +2,7 @@ Using the GNU Compiler Collection(GCC)
 ===
 
 > GCC 这么牛的编译器，非常值得学习 —— 我
+> 
 > 本文档为 GCC 学习计划
 > https://gcc.gnu.org/onlinedocs/gcc/index.html
 > 全部为原生 理解/翻译 哦~
@@ -47,6 +48,8 @@ GCC 是 "GNU Compiler Collection", 是 Collection 哦，所以不是专门给 C 
 这里我们知道 CPP 源代码一般是 ""
 
 
+
+
 #### 4.15 Architecture
 
 - Value to the macro
@@ -84,7 +87,7 @@ auto int access(int *, int);
 ```
 
 
-#### 6.20 Arrays of Variable Length
+#### [6.20 Arrays of Variable Length](https://gcc.gnu.org/onlinedocs/gcc/Variable-Length.html#Variable-Length)
 
 这个其实就是 动态声明一个数组
 通常情况下我们都是定长数组嘛，需要动态的时候我们都是用 malloc 手动维护
@@ -106,6 +109,32 @@ alloca: https://man7.org/linux/man-pages/man3/alloca.3.html
 ```
 
 这个 `##` 可以帮你删掉前面多余的 `,`，如果你只传一个参数的话hhh
+
+
+#### [6.39 Attribute Syntax](https://gcc.gnu.org/onlinedocs/gcc/Attribute-Syntax.html#Attribute-Syntax)
+
+
+
+
+#### [6.59 Other Built-in Functions Provided by GCC](https://gcc.gnu.org/onlinedocs/gcc/Other-Builtins.html)
+
+这部分内容还挺多的，慢慢补全。
+
+GCC 提供的 built-in functions 主要分两类：
+一类是与 `exceptions or variable-length argument lists` 相关，并不在这部分，并且不建议使用
+另一类是与优化相关的
+
+- void *__builtin_alloca (size_t size)
+  之前也介绍过 VLA , 变长数组及 alloca() 函数
+  这里官方也更建议 VLA 的使用方式，因为 __builtin_alloca 并不会对传进来的值进行验证
+  根据 `__BIGGEST_ALIGNMENT__` 自动内存对其
+
+- void *__builtin_alloca_with_align (size_t size, size_t alignment)
+  > power of 2 greater than or equal to CHAR_BIT
+
+- void *__builtin_alloca_with_align_and_max (size_t size, size_t alignment, size_t max_size)
+
+- 
 
 
 #### [18.7.4 Handling Leaf Function](https://gcc.gnu.org/onlinedocs/gccint/Leaf-Functions.html)

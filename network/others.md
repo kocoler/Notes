@@ -71,3 +71,38 @@ MTU 1500字节，最小 64 字节
 TCP 没有包长度这个区别，完全交给 IP 层分包
 
 > https://blog.csdn.net/caoshangpa/article/details/51530685
+
+
+#### QUIC
+
+
+
+#### SCTP
+
+Stream Control Transmission Protocol 流控制传输协议
+
+2000，RFC4906，3208
+
+针对成帧的消息，message-oriented。发送的是一串 message(byte 的集合)，TCP 是流导向的协议，只是单纯的附加 bytes 到 queue，而 SCTP 每个 message 都有独立的 queue。
+
+- Multi home
+  可以有多个路线，做高可用
+
+#### SS7
+
+Signaling System Number 7
+七号信令
+
+> https://en.wikipedia.org/wiki/Signalling_System_No._7
+
+
+#### Qos
+
+Quality of Service
+保证数据流性能达到一定的水准
+
+
+#### IPsec
+
+互联网安全协议 (Internet Protocol Security, IPsec)
+透过对IP协议的分组进行 加密和认证 来保护IP协议的网络传输协议族。

@@ -37,12 +37,14 @@ just two things: procedure and data
     (define square (lambda (x) (* x x)))
     lambda -> make a procedure
 
+    ```lisp
     ((COND ((< x 0) (- x))
             ((= x 0) 0)
             ((> x 0) (+ x))))
     (if (< x 0)
         (- x)
         x)
+    ```
 
     whether or not you're defining a procedure
 

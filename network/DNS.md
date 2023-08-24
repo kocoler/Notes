@@ -41,3 +41,7 @@ Extension Mechanisms for DNS (EDNS)
 add OPT header
 
 ref: https://draveness.me/whys-the-design-dns-udp-tcp/
+
+### GeoDNS
+
+根据地理位置分配最快的地址

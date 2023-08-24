@@ -7,6 +7,8 @@ Service Mesh
 
 最开始的网络(除了业务逻辑外，还夹杂着对网络传输问题的处理逻辑) -> TCP 出现，网络层剥离 -> (网络通信发展)微服务出现 -> 微服务框架产生 -> Service Mesh 出现(取消微服务框架限制) -> 以 Istio 为代表的第二代 service mesh 集中管控 service mesh
 
+在一个标准的Kubernetes环境里，Service Mesh通常被定义成“管理东西向流量”，其中东西向流量是指一个Pod访问另外一个Pod的流量。作为对比，通常人们把Ingress+Egress称为南北向流量。
+
 service mesh 个人认为是一种 管控(网络调用、限流、熔断和监控) 大规模(微)服务的网络代理->集中管理的设计
 
 将 service mesh 一般以 sidecar 的形式部署，是作为微服务的中间层，最后是若干服务代理所组成的错综复杂的网格

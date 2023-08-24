@@ -40,3 +40,19 @@ https://12factor.net/zh_cn/
 
 ![图 1](https://i.loli.net/2021/06/07/aXzANLj5i87q1hK.png)  
 
+
+### Knative
+
+
+### 长尾请求
+
+就是尤其耗时的那部分，1%
+
+[Tail-Latency-Study](http://accelazh.github.io/storage/Tail-Latency-Study)
+[azure-documentdb-service-level-agreements](https://azure.microsoft.com/en-us/blog/azure-documentdb-service-level-agreements/)
+
+service level agreements(SLA) 的一部分
+
+### 云托管 vs 云原生（这个理念还是要一直记着的）
+
+云原生的本质是利用云上池化资源来实现更强的弹性，所以简单把一个开源软件托管在云上，并不能称之为云原生。云原生带来的优势是更低使用成本、更低运维成本、更灵活的数据流转以及更弹性的架构。
